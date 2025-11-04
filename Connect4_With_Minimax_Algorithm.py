@@ -88,18 +88,17 @@ def evaluate_window(window, piece):
     if piece == PLAYER_PIECE:
         opp_piece = AI_PIECE
 
-    # SCORING SYSTEM:
-    # 4 of my pieces in window = 100 points (WIN!)
+   
     if window.count(piece) == 4:
         score += 100
-    # 3 of my pieces + 1 empty = 5 points (one away from winning)
+    
     elif window.count(piece) == 3 and window.count(EMPTY) == 1:
         score += 5
-    # 2 of my pieces + 2 empty = 2 points (building up)
+    
     elif window.count(piece) == 2 and window.count(EMPTY) == 2:
         score += 2
     
-    # DEFENSIVE: If opponent has 3 in a row, subtract points (dangerous!)
+   
     if window.count(opp_piece) == 3 and window.count(EMPTY) == 1:
         score -= 4
 
